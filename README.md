@@ -45,11 +45,9 @@ Ensure that you have **Node.js** and **npm** installed. This is required to set 
 1. The cards are animated with a sliding effect. You can customize the animation by editing the `@keyframes` in the `<style>` tag.
 2. Adjust the gradient background using Tailwind's `bg-gradient-to-br` class.
 
----
 
-### Example Screenshots
-(.src/ss/screenshot.jpg) This is the path of screen shot.
-
+## Screenshot
+![App Screenshot](./src/ss/screenshot.jpg)
 ---
 
 ### License
