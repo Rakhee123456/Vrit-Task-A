@@ -48,7 +48,8 @@ Ensure that you have **Node.js** and **npm** installed. This is required to set 
 ---
 
 ### Example Screenshots
-[src\ss\screenshot.jpg] This is the path of screen shot
+(src\ss\screenshot.jpg) This is the path of screen shot.
+
 ---
 
 ### License
