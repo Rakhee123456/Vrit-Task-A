@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Vertical Card Slider</title>
+    <style>
+      /* Smooth scrolling animation */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Scale effect */
+      .scale-up {
+        transform: scale(1.1);
+        transition: transform 0.3s ease-in-out;
+      }
+    </style>
+  </head>
+  <body
+    class="h-screen bg-gradient-to-br from-pink-500 via-purple-500 to-red-500 flex items-center justify-center"
+  >
+    <!-- Vertical Card Container -->
+    <div id="slider" class="flex flex-col gap-6 overflow-y-scroll h-[90vh] w-[300px]">
+      <!-- Card 1 -->
+      <div
+        class="card flex-shrink-0 bg-white/20 rounded-xl shadow-lg backdrop-blur-md p-6"
+      >
+        <h1 class="text-xl font-bold text-white">Card 1</h1>
+        <p class="text-white/80 mt-2 text-sm">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </p>
+      </div>
+      <!-- Card 2 -->
+      <div
+        class="card flex-shrink-0 bg-white/20 rounded-xl shadow-lg backdrop-blur-md p-6"
+      >
+        <h1 class="text-xl font-bold text-white">Card 2</h1>
+        <p class="text-white/80 mt-2 text-sm">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </p>
+      </div>
+      <!-- Card 3 -->
+      <div
+        class="card flex-shrink-0 bg-white/20 rounded-xl shadow-lg backdrop-blur-md p-6"
+      >
+        <h1 class="text-xl font-bold text-white">Card 3</h1>
+        <p class="text-white/80 mt-2 text-sm">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </p>
+      </div>
+      <!-- Card 4 -->
+      <div
+        class="card flex-shrink-0 bg-white/20 rounded-xl shadow-lg backdrop-blur-md p-6"
+      >
+        <h1 class="text-xl font-bold text-white">Card 4</h1>
+        <p class="text-white/80 mt-2 text-sm">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </p>
+      </div>
+    </div>
+
+    <!-- JavaScript for Scaling Middle Card -->
+    <script>
+      const slider = document.getElementById("slider");
+      const cards = document.querySelectorAll(".card");
+
+      function scaleCards() {
+        const sliderRect = slider.getBoundingClientRect();
+
+        cards.forEach((card) => {
+          const cardRect = card.getBoundingClientRect();
+          const cardCenter = cardRect.top + cardRect.height / 2;
+          const sliderCenter = sliderRect.top + sliderRect.height / 2;
+
+          // If the card is near the middle, scale it up
+          if (Math.abs(cardCenter - sliderCenter) < 50) {
+            card.classList.add("scale-up");
+          } else {
+            card.classList.remove("scale-up");
+          }
+        });
+      }
+
+      // Add scroll event listener
+      slider.addEventListener("scroll", scaleCards);
+
+      // Initial scaling on page load
+      window.addEventListener("load", scaleCards);
+    </script>
+  </body>
+</html>
